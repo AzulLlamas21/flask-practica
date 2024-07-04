@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+    <img src="data:image/png;base64,{{ img_data }}" alt="Gráfico del Dashboard">
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad Vendida</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto, cantidad in datos.items() %}
+            <tr>
+                <td>{{ producto }}</td>
+                <td>{{ cantidad }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('report_new_dashboard') }}" target="_blank">Generar PDF</a>
+    <a href="/" class="btn">Regresar a Index</a>
+</body>
+</html>
